@@ -43,6 +43,23 @@ public class ArrayListTest02 {
         for (String matchingName : matchingNames) {
             System.out.println(matchingName);
         }
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).substring(0, 1).equals("김")) {
+                System.out.println(list.get(i));
+            }
+
+            String name = list.get(i);
+            if (name.charAt(0) == '김') {
+                System.out.println(name);
+            }
+
+            if (list.get(i).startsWith("김")) {
+                System.out.println(list.get(i));
+            }
+        } //이런 방법도있다
+
+
     }
 
     public static List<String> matchingName(List<String> list, String prefix) {

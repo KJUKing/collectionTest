@@ -138,7 +138,8 @@ class SortNumDesc implements Comparable<SortNumDesc> {
 
     @Override
     public int compareTo(SortNumDesc num) {
-        return Integer.compare(num.getNum(), this.getNum());
+        return Integer.compare(this.getNum(), num.getNum());
+        //파라미터 변수값을 뒤바꾸면 오름차순에서 내림차순으로 바뀜.
     }
 
 }

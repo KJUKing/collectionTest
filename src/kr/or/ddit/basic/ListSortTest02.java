@@ -76,9 +76,15 @@ class Member implements Comparable<Member> {
         return name;
     }
 
+    public int getNum() {
+        return num;
+    }
 
+    public String getTel() {
+        return tel;
+    }
 
-//    회원이름을 기준으로 오름차순
+    //    회원이름을 기준으로 오름차순
     @Override
     public int compareTo(Member mem) {
         /*
@@ -143,4 +149,15 @@ class SortNumDesc implements Comparable<SortNumDesc> {
     }
 
 }
+
+class SortNumDescV1 implements Comparator<Member> {
+
+
+    @Override
+    public int compare(Member mem1, Member mem2) {
+//        return new Integer(mem1.getNum()).compareTo(mem2.getNum()) * -1; 제 1방법
+        return Integer.compare(mem1.getNum(), mem2.getNum()) * -1; // 제 2방법
+    }
+}
+
 

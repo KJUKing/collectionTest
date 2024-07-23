@@ -21,16 +21,16 @@ import java.util.Comparator;
 public class ListSortHomeWork {
 
     public static void main(String[] args) {
-        ArrayList<Student> stuList = new ArrayList<>();
+        ArrayList<StudentV1> stuList = new ArrayList<>();
 
-        stuList.add(new Student(11, "나나", 50, 60, 82));
-        stuList.add(new Student(22, "마마", 25, 48, 74));
-        stuList.add(new Student(55, "라라", 31, 82, 52));
-        stuList.add(new Student(44, "가가", 76, 11, 60));
-        stuList.add(new Student(33, "다다", 44, 34, 100));
+        stuList.add(new StudentV1(11, "나나", 50, 60, 82));
+        stuList.add(new StudentV1(22, "마마", 25, 48, 74));
+        stuList.add(new StudentV1(55, "라라", 31, 82, 52));
+        stuList.add(new StudentV1(44, "가가", 76, 11, 60));
+        stuList.add(new StudentV1(33, "다다", 44, 34, 100));
 
         System.out.println("초기 리스트값");
-        for (Student student : stuList) {
+        for (StudentV1 student : stuList) {
             System.out.println(student);
         }
 
@@ -41,29 +41,29 @@ public class ListSortHomeWork {
         Collections.sort(stuList);
 
         System.out.println("학번 오름차순 정렬");
-        for (Student student : stuList) {
+        for (StudentV1 student : stuList) {
             System.out.println(student);
         }
         System.out.println("---------------------------");
 
-        ArrayList<SortByTotal> sortByTotal = new ArrayList<>();
+        ArrayList<SortByTotalV1> sortByTotal = new ArrayList<>();
 
-        sortByTotal.add(new SortByTotal(11, "나나", 50, 60, 82));
-        sortByTotal.add(new SortByTotal(22, "마마", 25, 48, 74));
-        sortByTotal.add(new SortByTotal(55, "라라", 31, 82, 52));
-        sortByTotal.add(new SortByTotal(44, "가가", 76, 11, 60));
-        sortByTotal.add(new SortByTotal(33, "다다", 44, 34, 100));
+        sortByTotal.add(new SortByTotalV1(11, "나나", 50, 60, 82));
+        sortByTotal.add(new SortByTotalV1(22, "마마", 25, 48, 74));
+        sortByTotal.add(new SortByTotalV1(55, "라라", 31, 82, 52));
+        sortByTotal.add(new SortByTotalV1(44, "가가", 76, 11, 60));
+        sortByTotal.add(new SortByTotalV1(33, "다다", 44, 34, 100));
 
         System.out.println("총점 내림차순 정렬");
-        for (SortByTotal byTotal : sortByTotal) {
+        for (SortByTotalV1 byTotal : sortByTotal) {
             System.out.println(byTotal);
         }
 
 
         System.out.println("---------------------------");
-        Collections.sort(sortByTotal, new Comparator<SortByTotal>() {
+        Collections.sort(sortByTotal, new Comparator<SortByTotalV1>() {
             @Override
-            public int compare(SortByTotal s1, SortByTotal s2) {
+            public int compare(SortByTotalV1 s1, SortByTotalV1 s2) {
                 if (s1.getSum() != s2.getSum()) { // 총점이 안같을때
                     return Integer.compare(s2.getSum(), s1.getSum());
                 } else {
@@ -86,7 +86,7 @@ public class ListSortHomeWork {
             }
         }
         System.out.println("총점 내림차순 / 점수가 같을시 이름 오름차순 정렬");
-        for (SortByTotal byTotal : sortByTotal) {
+        for (SortByTotalV1 byTotal : sortByTotal) {
             System.out.println(byTotal);
         }
 
@@ -96,7 +96,7 @@ public class ListSortHomeWork {
 
 }
 
-class Student implements Comparable<Student> {
+class StudentV1 implements Comparable<StudentV1> {
 
     private int stuNum; // 학번
     private String name;
@@ -106,7 +106,7 @@ class Student implements Comparable<Student> {
     private int sum;
     private int grade; // 등수
 
-    public Student(int stuNum, String name, int kor, int eng, int math) {
+    public StudentV1(int stuNum, String name, int kor, int eng, int math) {
         this.stuNum = stuNum;
         this.name = name;
         this.kor = kor;
@@ -137,14 +137,14 @@ class Student implements Comparable<Student> {
     }
 
     @Override
-    public int compareTo(Student stuNum) {
+    public int compareTo(StudentV1 stuNum) {
         return Integer.compare(this.getStuNum(), stuNum.getStuNum());
     }
 
 }
 
-class SortByTotal {
-
+class SortByTotalV1 {
+//원래는 여기에 implements Comparator<Member> 이렇게 주입시켜서 작동시키면된다
     private int stuNum; // 학번
     private String name;
     private int kor;
@@ -153,7 +153,7 @@ class SortByTotal {
     private int sum;
     private int grade; // 등수
 
-    public SortByTotal(int stuNum, String name, int kor, int eng, int math) {
+    public SortByTotalV1(int stuNum, String name, int kor, int eng, int math) {
         this.stuNum = stuNum;
         this.name = name;
         this.kor = kor;

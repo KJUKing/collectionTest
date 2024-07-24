@@ -53,17 +53,18 @@ public class LottoTest {
     }
 
     private static void startLotto(int money) {
-        ArrayList<Integer> lottoNum = new ArrayList<>();
-//        HashSet<Integer> lottoNum = new HashSet<>();
+
+        HashSet<Integer> lottoNum = new HashSet<>();
         int count = money / 1000;
         for (int i = 1; i < count+1; i++) {
             while (lottoNum.size() < 6) {
                 lottoNum.add((int) (Math.random() * (50 - 1 + 1) + 1));
-                //어차피 같은 숫자가 넣어질 경우는 없다고 생각해서 해쉬셋에서 리스트로 변경함
             }
-            Collections.sort(lottoNum);
-            System.out.println("로또번호" + i + " " + lottoNum);
+            ArrayList<Integer> lotto = new ArrayList<>(lottoNum);
+            Collections.sort(lotto);
+            System.out.println("로또번호" + i + " " + lotto);
             lottoNum.clear();
+            lotto.clear();
         }
         System.out.println();
         System.out.println("받은 금액은 "+money+"원이고 "+"거스름돈은 "+money%1000+"원 입니다.");
